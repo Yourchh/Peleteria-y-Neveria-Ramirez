@@ -367,3 +367,161 @@ body:not(.loading) .fade-in-up {
   color: var(--color-text);
   display: block; 
 }
+
+/* --- ESTILOS PARA LOGO ARRASTRABLE Y ANIMACIONES --- */
+
+/* 1. Estilos para el logo */
+#draggable-logo {
+    cursor: grab; /* Cambia el cursor para indicar que es movible */
+    user-select: none; /* Evita que el texto del logo se seleccione al arrastrar */
+    position: relative; /* Posición necesaria para que z-index funcione */
+    z-index: 1001; /* Asegura que el logo esté por encima de otros elementos al arrastrar */
+}
+
+#draggable-logo:grabbing {
+    cursor: grabbing; /* Cambia el cursor mientras se arrastra */
+}
+
+/* 2. Estilos para las partículas (chispas y muñecos) */
+.particle {
+    position: fixed; /* Posición fija para que aparezcan en cualquier parte de la pantalla */
+    pointer-events: none; /* Las partículas no deben interferir con el ratón */
+    opacity: 0;
+    z-index: 9999; /* Asegura que las partículas estén por encima de todo */
+    animation: fade-and-float 1.2s ease-out forwards;
+}
+
+/* 3. Animación de las partículas */
+@keyframes fade-and-float {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--end-x), var(--end-y)) scale(0);
+        opacity: 0;
+    }
+}
+
+/* 4. Estilos para las chispas de dulce */
+.sparkle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--random-color); /* Usaremos una variable para el color */
+}
+
+/* 5. Estilos para los muñecos de nieve (hechos con CSS) */
+.snowman {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 18px 0 -4px #fff, 0 18px 0 -2px #000, 0 24px 0 0 #fff;
+    /* Simula los ojos y el cuerpo con sombras */
+}
+
+/* Oculta el cursor cuando el efecto de partículas está activo */
+body.magic-cursor-active {
+    cursor: none;
+}
+
+/* --- ESTILOS PARA CURSOR DE ESTRELLA MÁGICA --- */
+
+/* 1. Oculta el cursor por defecto SÓLO cuando el efecto está activo */
+body.magic-cursor-active {
+    cursor: none;
+}
+
+/* 2. Estilo base del cursor de estrella */
+#magic-star-cursor {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 25px; /* Tamaño de la estrella */
+    height: 25px;
+    pointer-events: none; /* No debe interferir con clics */
+    z-index: 10000;
+    transform: translate(-50%, -50%); /* Centra la estrella en el puntero */
+}
+
+/* 3. Muestra la estrella cuando el efecto está activo */
+body.magic-cursor-active #magic-star-cursor {
+    display: block;
+}
+
+/* 4. Forma de la estrella (usando pseudo-elementos) */
+#magic-star-cursor::before,
+#magic-star-cursor::after {
+    content: '★'; /* Usamos el carácter de estrella */
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 25px; /* Asegura que la estrella llene el div */
+    line-height: 1;
+    animation: rainbow-colors 4s linear infinite; /* Animación de color */
+}
+
+/* 5. Animación que cambia el color de la estrella constantemente */
+@keyframes rainbow-colors {
+    0% { color: #ffadad; }
+    15% { color: #ffd6a5; }
+    30% { color: #fdffb6; }
+    45% { color: #caffbf; }
+    60% { color: #9bf6ff; }
+    75% { color: #a0c4ff; }
+    90% { color: #bdb2ff; }
+    100% { color: #ffadad; }
+}
+
+/* --- ESTILOS PARA CURSOR DE CONO DE NIEVE MÁGICO --- */
+
+/* 1. Oculta el cursor por defecto SÓLO cuando el efecto está activo */
+body.magic-cursor-active {
+    cursor: none;
+}
+
+/* 2. Estilo base del cursor de cono de nieve */
+#magic-cone-cursor {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100px; /* Ajusta el tamaño del cono si es necesario */
+    height: auto; /* Mantiene la proporción */
+    pointer-events: none; /* No debe interferir con clics */
+    z-index: 10000;
+    transform: translate(-50%, -50%); /* Centra el cono en el puntero */
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)); /* Un pequeño brillo opcional */
+}
+
+/* --- ESTILOS PARA CURSOR DE CONO DE NIEVE MÁGICO (CORREGIDO) --- */
+
+/* 1. Muestra el cono cuando el efecto está activo */
+body.magic-cursor-active #magic-cone-cursor {
+    display: block;
+}
+
+/* 2. Oculta el cursor del sistema en elementos interactivos específicos */
+body.magic-cursor-active a,
+body.magic-cursor-active button,
+body.magic-cursor-active .product-card,
+body.magic-cursor-active .filter-btn,
+body.magic-cursor-active .theme-toggle-btn {
+    cursor: none;
+}
+
+/* 3. Estilo base del cursor de cono de nieve */
+#magic-cone-cursor {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: auto;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+}

@@ -66,12 +66,12 @@
 
     <header class="header">
       <nav class="navbar container">
-        <a href="#home" class="nav-logo">
+        <a href="#home" id="draggable-logo" class="nav-logo">
           <img
-            src="/Paleteria y Neveria Ramirez/img/logo.svg"
+            src="favicon_io/android-chrome-192x192.png"
             alt="Logo de Paletería y Nevería Ramirez"
             class="logo-img"
-            style="height: 40px; vertical-align: middle"
+            style="height: 50px; vertical-align: middle; border-radius: 50%"
           />
           Peletería & Nevería Ramirez
         </a>
@@ -617,11 +617,7 @@
               data-title="Nieve de Mermelada"
               data-price="$15 / cups"
             >
-              <img
-                src="img/art34.png"
-                alt="Nieve de Cajeta"
-                loading="lazy"
-              />
+              <img src="img/art34.png" alt="Nieve de Cajeta" loading="lazy" />
               <h3>Cajeta</h3>
               <span class="product-price">$15 / cups</span>
             </article>
@@ -643,11 +639,7 @@
               data-title="Esquimal Grande"
               data-price="$35"
             >
-              <img
-                src="img/art36.png"
-                alt="Esquimal Grande"
-                loading="lazy"
-              />
+              <img src="img/art36.png" alt="Esquimal Grande" loading="lazy" />
               <h3>Esquimal Grande</h3>
               <span class="product-price">$35</span>
             </article>
@@ -836,4 +828,18 @@
 
     <script src="js/main.js"></script>
   </body>
+  </div>
+    </footer>
+
+    <div id="product-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+      ...
+    </div>
+
+    <audio id="sparkle-sound" src="sounds/sparkle.mp3" preload="auto"></audio>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
+  <body class="loading">
+<img id="magic-cone-cursor" src="img/cono.png" alt="Cursor de cono de nieve" />
 </html>
