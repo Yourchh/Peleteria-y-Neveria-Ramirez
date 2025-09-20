@@ -28,7 +28,7 @@
     --color-heading: #FFFFFF;
     --color-primary-accent: #66BB6A; /* Verde más brillante para modo oscuro */
     --color-secondary-accent: #F48FB1;
-    --color-highlight: #FFC947;
+    --color-highlight: #66BB6A;
     --color-subtle-text: #b8aaa3;
     --shadow-color: 0, 0, 0; /* Sombra Negra (RGB) */
 }
